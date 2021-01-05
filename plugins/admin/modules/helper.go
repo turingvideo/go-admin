@@ -47,7 +47,11 @@ func RemoveBlankFromArray(s []string) []string {
 }
 
 func Uuid() string {
-	return uuid.NewV4().String()
+	id, err := uuid.NewV4()
+	if err != nil {
+		panic(err)
+	}
+	return id.String()
 }
 
 func SetDefault(source, def string) string {
